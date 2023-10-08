@@ -1,0 +1,41 @@
+{
+  "name": "antdv-style",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "dist/index.js",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "peerDependencies": {
+    "vue": "3.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.23.1",
+    "@emotion/cache": "^11.11.0",
+    "@emotion/css": "^11.11.2",
+    "@emotion/serialize": "^1.1.2",
+    "@emotion/server": "^11.11.0",
+    "@emotion/utils": "^1.2.1",
+    "@vueuse/core": "^10.5.0",
+    "ant-design-vue": "^4.0.3"
+  },
+  "devDependencies": {
+    "@mistjs/eslint-config": "1.0.0-beta.2",
+    "@types/node": "^20.8.3",
+    "@vitejs/plugin-vue": "^4.4.0",
+    "@vitejs/plugin-vue-jsx": "^3.0.2",
+    "eslint": "^8.51.0",
+    "typescript": "^5.2.2",
+    "unplugin-vue-tsx-auto-props": "^0.4.1",
+    "vite": "^4.4.11",
+    "vite-plugin-dts": "^3.6.0",
+    "vitepress": "1.0.0-rc.20",
+    "vue": "^3.3.4"
+  }
+}
