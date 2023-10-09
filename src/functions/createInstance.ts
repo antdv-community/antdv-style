@@ -1,8 +1,9 @@
-import { CacheManager, createEmotion } from '../core'
-import type { HashPriority, StyleEngine, StyledConfig } from '../types'
+import { CacheManager, createCSS, createEmotion, serializeCSS } from '../core'
+import type { HashPriority, StyleEngine, StyleManager, StyledConfig } from '../types'
 import { createEmotionContext } from '../factories/createEmotionContext.ts'
 import { createContext } from '../utils/context.ts'
 import { createUseTheme } from '../factories/createUseTheme'
+import { createStylesFactory } from '../factories/createStyles'
 
 // 为 SSR 添加一个全局的 cacheManager，用于统一抽取 ssr 样式
 declare global {
@@ -79,6 +80,40 @@ export function createInstance<T = any>(options: CreateOptions<T>) {
     StyledThemeContext: styledThemeContext,
     prefixCls: internalOptions?.prefixCls,
   })
-
   const useTheme = createUseTheme({ StyleEngineContext })
+
+  const createStyles = createStylesFactory({
+    hashPriority: internalOptions.hashPriority,
+    useTheme,
+    EmotionContext,
+  })
+
+  // ******** 上面这些都和主题相关，如果做了任何改动，都需要排查一遍 ************ //
+  const { cx } = createCSS(emotion.cache, { hashPriority: internalOptions.hashPriority })
+  const { injectGlobal, keyframes } = emotion
+
+  return {
+    // ******************** //
+    // **** 样式生成相关 **** //
+    // ******************** //
+    createStyles,
+
+    //* ******************* //
+    //* ***  样式表管理  **** //
+    //* ******************* //
+    styleManager: emotion as StyleManager,
+
+    // ******************** //
+    // **** 基础样式方法 **** //
+    // ******************** //
+    css: serializeCSS,
+    cx,
+    keyframes,
+    injectGlobal,
+
+    // ******************** //
+    // ***** 主题相关 ***** //
+    // ******************** //
+    useTheme,
+  }
 }

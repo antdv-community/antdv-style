@@ -9,6 +9,8 @@ export default mist({
   ignores: [
     'tsconfig.*.json',
     'tsconfig.json',
+    'es',
+    'lib',
   ],
 }, {
   rules: {
