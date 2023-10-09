@@ -5,7 +5,7 @@ export const useStyles = createStyles(({ token, css }) => {
   return {
     container: {
       color: token.colorPrimary,
-      fontSize: '20px',
+      fontSize: 20,
     },
     card: css`
       background-color: red;

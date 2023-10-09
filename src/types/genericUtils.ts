@@ -1,5 +1,5 @@
-import type { SerializedStyles } from '@emotion/serialize'
-import type { CSSObject } from './css'
+import type { CSSObject, SerializedStyles } from '@emotion/serialize'
+import type { CSSProperties } from 'vue'
 
 /**
  * 任何一组样式，最基础的入参有三种 CSS Style 对象
@@ -7,7 +7,7 @@ import type { CSSObject } from './css'
  * 第二种：cx('abc-xxx',css` color:blue; `) -> string
  * 第三种: { color:"red" } -> CSSObject
  */
-export type AtomInputType = string | CSSObject | SerializedStyles
+export type AtomInputType = string | CSSProperties | CSSObject | SerializedStyles
 
 /**
  * getStyle 函数的的基础出参类型，我们需要将为这个类型提供准确定义，进而为开发者用户提供精准的类型提示
@@ -17,7 +17,7 @@ export type AtomInputType = string | CSSObject | SerializedStyles
  */
 export type BaseReturnType = KVObject | AtomInputType
 
-type KVObject = Record<string, CSSObject | string | SerializedStyles>
+type KVObject = Record<string, CSSProperties | CSSObject | string | SerializedStyles>
 
 /**
  * @title StyleObjectOnly
@@ -28,8 +28,8 @@ type KVObject = Record<string, CSSObject | string | SerializedStyles>
 type StyleObjectOnly<T extends BaseReturnType> = T extends string
   ? never
   : T extends SerializedStyles
-  ? never
-  : T
+    ? never
+    : T
 
 /**
  * 根据用户输入的样式对象，导出可以给用户使用消费的类型泛型
@@ -48,5 +48,5 @@ type DefinitionToResult<T, K extends keyof T = keyof T> = {
 export type ReturnStyleToUse<T extends BaseReturnType> = T extends string
   ? T
   : T extends SerializedStyles
-  ? string
-  : DefinitionToResult<StyleObjectOnly<T>>
+    ? string
+    : DefinitionToResult<StyleObjectOnly<T>>
