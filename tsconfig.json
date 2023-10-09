@@ -19,14 +19,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "baseUrl": ".",
-    "paths": {
-      "antdv-style": ["src"]
-    }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [
-    { "path": "./tsconfig.docs.json" },
     {
       "path": "./tsconfig.node.json"
     }

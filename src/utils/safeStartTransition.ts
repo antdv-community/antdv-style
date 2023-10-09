@@ -1,6 +1,6 @@
 import { nextTick } from 'vue'
 
-export const safeStartTransition = (func: Function) => {
+export function safeStartTransition(func: Function) {
   nextTick(() => {
     func?.()
   }).then(() => {})

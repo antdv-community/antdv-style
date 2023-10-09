@@ -1,6 +1,11 @@
+<script lang="ts" setup>
+    import BBtn from "./.vitepress/components/button/demo/index.vue";
+</script>
 # Markdown Extension Examples
 
 This page demonstrates some of the built-in markdown extensions provided by VitePress.
+
+<BBtn />
 
 ## Syntax Highlighting
 

@@ -1,4 +1,4 @@
-import type { ComputedRef, InjectionKey } from 'vue'
+import type { ComputedRef } from 'vue'
 import { computed, unref } from 'vue'
 import type {
   BaseReturnType,
@@ -9,14 +9,15 @@ import type {
   Theme,
 } from '../../types'
 import type { Emotion } from '../../core'
-import { useContext } from '../../utils/context.ts'
+import type { Context } from '../../utils/context'
+import { useContext } from '../../utils/context'
 import { createCSS, serializeCSS } from '../../core'
 import { isReactCssResult } from '../../utils'
 import type { StyleOrGetStyleFn } from './types.ts'
 import { convertResponsiveStyleToString, useMediaQueryMap } from './response.ts'
 
 interface CreateStylesFactory {
-  EmotionContext: InjectionKey<Emotion>
+  EmotionContext: Context<Emotion>
   hashPriority?: HashPriority
   useTheme: () => ComputedRef<Theme>
 }

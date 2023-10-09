@@ -21,8 +21,8 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "antdv-style": ["src"]
+      "antdv-style": ["../src"]
     }
   },
-  "include": ["docs/**/*.ts", "docs/**/*.d.ts", "docs/**/*.tsx", "docs/**/*.vue"],
+  "include": ["./**/*.ts", "./**/*.d.ts", "./**/*.tsx", "./**/*.vue"],
 }

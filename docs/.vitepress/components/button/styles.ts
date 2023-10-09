@@ -1,10 +1,10 @@
+// @ts-expect-error this
 import { createStyles } from 'antdv-style'
 
 export const useStyles = createStyles(({ token, css }) => {
-  console.log(token)
   return {
     container: {
-      color: 'green',
+      color: token.colorPrimary,
       fontSize: '20px',
     },
     card: css`

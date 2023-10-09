@@ -1,12 +1,13 @@
-import type { ComputedRef, InjectionKey } from 'vue'
+import type { ComputedRef } from 'vue'
 import { computed, reactive } from 'vue'
 import type { StyleEngine, Theme } from '../types'
+import type { Context } from '../utils/context'
 import { useContext } from '../utils/context'
 import { useAntdTheme, useThemeMode } from '../hooks'
 import { DEFAULT_THEME_CONTEXT } from '../functions/setupStyled'
 
 interface CreateUseThemeOptions {
-  StyleEngineContext: InjectionKey<StyleEngine>
+  StyleEngineContext: Context<StyleEngine>
 }
 export function createUseTheme(options: CreateUseThemeOptions): (() => ComputedRef<Theme>) {
   return (): ComputedRef<Theme> => {
