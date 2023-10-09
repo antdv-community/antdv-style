@@ -29,7 +29,7 @@
     "build": "vite build"
   },
   "peerDependencies": {
-    "vue": "3.0"
+    "vue": "^3.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.23.1",
