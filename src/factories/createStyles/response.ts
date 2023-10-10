@@ -39,6 +39,7 @@ export function convertResponsiveStyleToString(obj: BreakpointMapParams, map: Re
       let str = value as SerializedStyles | CSSObject
 
       if (!isReactCssResult(value))
+      // @ts-expect-error this is
         str = serializeCSS(value)
 
       // @ts-expect-error this is

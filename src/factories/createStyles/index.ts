@@ -85,7 +85,7 @@ export function createStylesFactory({ hashPriority, useTheme, EmotionContext }: 
         if (typeof tempStyles === 'object') {
           // 判断是否是用 reactCSS 生成的
           if (isReactCssResult(tempStyles)) {
-            // 如果是用 reactCss 生成的话，需要用 className 的 css 做一层转换
+            // @ts-expect-error 如果是用 reactCss 生成的话，需要用 className 的 css 做一层转换
             tempStyles = toClassName(tempStyles) as any
           }
           else {
