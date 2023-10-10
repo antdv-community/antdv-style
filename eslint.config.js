@@ -14,6 +14,6 @@ export default mist({
   ],
 }, {
   rules: {
-    'vars-on-top': 'off',
+    'vars-on-top': 0,
   },
 })

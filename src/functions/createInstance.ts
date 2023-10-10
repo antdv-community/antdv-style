@@ -4,6 +4,7 @@ import { createEmotionContext } from '../factories/createEmotionContext.ts'
 import { createContext } from '../utils/context.ts'
 import { createUseTheme } from '../factories/createUseTheme'
 import { createStylesFactory } from '../factories/createStyles'
+import { createThemeProvider } from '../factories/createThemeProvider'
 
 // 为 SSR 添加一个全局的 cacheManager，用于统一抽取 ssr 样式
 declare global {
@@ -88,6 +89,11 @@ export function createInstance<T = any>(options: CreateOptions<T>) {
     EmotionContext,
   })
 
+  const ThemeProvider = createThemeProvider({
+    styledConfig: internalOptions.styled,
+    StyleEngineContext,
+    useTheme,
+  })
   // ******** 上面这些都和主题相关，如果做了任何改动，都需要排查一遍 ************ //
   const { cx } = createCSS(emotion.cache, { hashPriority: internalOptions.hashPriority })
   const { injectGlobal, keyframes } = emotion
@@ -115,5 +121,6 @@ export function createInstance<T = any>(options: CreateOptions<T>) {
     // ***** 主题相关 ***** //
     // ******************** //
     useTheme,
+    ThemeProvider,
   }
 }

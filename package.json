@@ -6,22 +6,22 @@
   "author": "aibayanyu20 <aibayanyu@qq.com>",
   "license": "MIT",
   "keywords": [],
-  "main": "es/index.js",
-  "types": "es/index.d.ts",
-  "files": [
-    "es",
-    "lib"
-  ],
   "exports": {
     ".": {
-      "import": "./es/index.js",
       "types": "./es/index.d.ts",
+      "import": "./es/index.js",
       "require": "./lib/index.js"
     },
     "./es/*": "./es/*",
     "./lib/*": "./lib/*",
     "./package.json": "./package.json"
   },
+  "main": "es/index.js",
+  "types": "es/index.d.ts",
+  "files": [
+    "es",
+    "lib"
+  ],
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
@@ -42,7 +42,7 @@
     "ant-design-vue": "^4.0.3"
   },
   "devDependencies": {
-    "@mistjs/eslint-config": "1.0.0-beta.2",
+    "@mistjs/eslint-config": "^1.0.0-beta.4",
     "@types/node": "^20.8.3",
     "@vitejs/plugin-vue": "^4.4.0",
     "@vitejs/plugin-vue-jsx": "^3.0.2",

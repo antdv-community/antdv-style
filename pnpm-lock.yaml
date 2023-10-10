@@ -32,8 +32,8 @@ dependencies:
 
 devDependencies:
   '@mistjs/eslint-config':
-    specifier: 1.0.0-beta.2
-    version: 1.0.0-beta.2(eslint@8.51.0)(prettier@3.0.3)(typescript@5.2.2)(vitest@0.34.6)
+    specifier: 1.0.0-beta.4
+    version: 1.0.0-beta.4(eslint@8.51.0)(prettier@3.0.3)(typescript@5.2.2)(vitest@0.34.6)
   '@types/node':
     specifier: ^20.8.3
     version: 20.8.3
@@ -1005,8 +1005,8 @@ packages:
     resolution: {integrity: sha512-9b8mPpKrfeGRuhFH5iO1iwCLeIIsV6+H1sRfxbkoGXIyQE2BTsPd9zqSqQJ+pv5sJ/hT5M1zvOFL02MnEezFug==}
     dev: true
 
-  /@mistjs/eslint-config@1.0.0-beta.2(eslint@8.51.0)(prettier@3.0.3)(typescript@5.2.2)(vitest@0.34.6):
-    resolution: {integrity: sha512-poYgJ+iKi0a/6U+ejy5LBNspm/MDkeaWLmnJFMLVCIgSKyhWchfHyjEcKc+iOT0V9ftQw8TqY4m1Ptqs5M3N8w==}
+  /@mistjs/eslint-config@1.0.0-beta.4(eslint@8.51.0)(prettier@3.0.3)(typescript@5.2.2)(vitest@0.34.6):
+    resolution: {integrity: sha512-W8HvKfYk/4KlBwxvLM0P3K5Iaun24c9Bd3koslacnctd/QA8yOtuiIHvXTqP1gkAd2PCKDqGiacuJzaetP9HSw==}
     peerDependencies:
       eslint: '>8.0.0'
     dependencies:

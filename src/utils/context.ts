@@ -1,10 +1,10 @@
-import type { DefineComponent, InjectionKey, PropType } from 'vue'
+import type { DefineComponent, InjectionKey } from 'vue'
 import { createGlobalState } from '@vueuse/core'
 import { defineComponent, inject, provide } from 'vue'
 
 export interface Context<T = any> {
   key: InjectionKey<T>
-  Provider: DefineComponent
+  Provider: DefineComponent<{ value: any }>
 }
 
 const useContextManager = createGlobalState(() => {
@@ -26,18 +26,10 @@ export function createContext<T>(params: T) {
   const { setContext } = useContextManager()
   const context: Context<T> = {
     key,
-    Provider: defineComponent({
-      props: {
-        value: {
-          type: Object as PropType<T>,
-        },
-      },
-      setup(props, { slots }) {
-        // @ts-expect-error this is props value
-        provide(key, props.value)
-        return () => slots?.default?.()
-      },
-    }),
+    Provider: defineComponent<{ value: any }>((props, { slots }) => {
+      provide(key, props.value)
+      return () => slots?.default?.()
+    }) as any,
   }
   setContext<T>(params, context)
   return context
