@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import vueTsxAutoProps from 'unplugin-vue-tsx-auto-props/vite'
+import vueTsxAutoProps from 'vite-plugin-tsx-auto-props'
 import dts from 'vite-plugin-dts'
 
 export default defineConfig({
