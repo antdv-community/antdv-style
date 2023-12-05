@@ -22,18 +22,19 @@ const TokenContainer = defineComponent(
       const { stylish, ...token } = antdTheme.value
       return {
         stylish,
-        token
+        token,
       }
     })
     // 获取默认的自定义 token
     const defaultCustomToken = computed(() => {
-      if (!props.defaultCustomToken) return {}
+      if (!props.defaultCustomToken)
+        return {}
 
       if (props.defaultCustomToken instanceof Function) {
         return props.defaultCustomToken({
           token: antdThemeData.value.token,
           appearance: appearance.value,
-          isDarkMode: isDarkMode.value
+          isDarkMode: isDarkMode.value,
         })
       }
 
@@ -48,8 +49,8 @@ const TokenContainer = defineComponent(
           ...props.customToken({
             token: antdThemeData.value.token,
             appearance: appearance.value,
-            isDarkMode: isDarkMode.value
-          })
+            isDarkMode: isDarkMode.value,
+          }),
         }
       }
 
@@ -58,22 +59,21 @@ const TokenContainer = defineComponent(
 
     // 获取 stylish
     const customStylish = computed(() => {
-      if (!props.customStylish) {
+      if (!props.customStylish)
         return {}
-      }
 
       return props.customStylish({
         token: { ...antdThemeData.value.token, ...customToken.value } as any,
         stylish: antdThemeData.value.stylish,
         appearance: appearance.value,
         isDarkMode: isDarkMode.value,
-        css: serializeCSS
+        css: serializeCSS,
       })
     })
 
     const stylish = computed(() => ({
       ...customStylish.value,
-      ...antdThemeData.value.stylish
+      ...antdThemeData.value.stylish,
     }))
     return () => {
       const theme: Theme = {
@@ -81,9 +81,9 @@ const TokenContainer = defineComponent(
         ...(customToken.value as any),
         stylish: stylish.value as any,
         ...reactive({
-          ...themeState
+          ...themeState,
         }),
-        prefixCls: props.prefixCls
+        prefixCls: props.prefixCls,
       }
       const StyledThemeProvider = props.StyledThemeProvider
 
@@ -93,7 +93,7 @@ const TokenContainer = defineComponent(
         </StyledThemeProvider>
       )
     }
-  }
+  },
 )
 
 export default TokenContainer

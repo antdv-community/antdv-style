@@ -5,14 +5,14 @@ import {
   onMounted,
   shallowRef,
   unref,
-  watchEffect
+  watchEffect,
 } from 'vue'
 import { useThemeModeProvide } from '../../context'
 import type {
   BrowserPrefers,
   ThemeAppearance,
   ThemeMode,
-  UseTheme
+  UseTheme,
 } from '../../types'
 import { matchBrowserPrefers } from '../../utils/matchBrowserPrefers'
 import { safeStartTransition } from '../../utils/safeStartTransition'
@@ -27,19 +27,19 @@ const ThemeObserver = defineComponent(
     setBrowserPrefers: (value: BrowserPrefers) => void
   }) => {
     const matchBrowserTheme = () => {
-      if (matchBrowserPrefers('dark').matches) {
+      if (matchBrowserPrefers('dark').matches)
         props.setAppearance('dark')
-      } else {
+
+      else
         props.setAppearance('light')
-      }
     }
 
     const updateBrowserTheme = () => {
-      if (matchBrowserPrefers('dark').matches) {
+      if (matchBrowserPrefers('dark').matches)
         props.setBrowserPrefers('dark')
-      } else {
+
+      else
         props.setBrowserPrefers('light')
-      }
     }
 
     watchEffect(() => {
@@ -51,22 +51,21 @@ const ThemeObserver = defineComponent(
       }
       // 如果是自动的话，则去做一次匹配，并开始监听
       setTimeout(matchBrowserTheme, 1)
-      if (!darkThemeMatch) {
+      if (!darkThemeMatch)
         darkThemeMatch = matchBrowserPrefers('dark')
-      }
-      if (matchBrowserTheme) {
+
+      if (matchBrowserTheme)
         darkThemeMatch.removeEventListener('change', matchBrowserTheme)
-      }
+
       darkThemeMatch.addEventListener('change', matchBrowserTheme)
     })
 
     watchEffect(() => {
-      if (!darkThemeMatch) {
+      if (!darkThemeMatch)
         darkThemeMatch = matchBrowserPrefers('dark')
-      }
-      if (updateBrowserTheme) {
+
+      if (updateBrowserTheme)
         darkThemeMatch.removeEventListener('change', updateBrowserTheme)
-      }
 
       darkThemeMatch.addEventListener('change', updateBrowserTheme)
     })
@@ -76,7 +75,7 @@ const ThemeObserver = defineComponent(
     return () => {
       return null
     }
-  }
+  },
 )
 
 export interface ThemeSwitcherProps {
@@ -103,7 +102,7 @@ const ThemeSwitcher = defineComponent((props: ThemeSwitcherProps, ctx) => {
   const theme = props.useTheme()
 
   const browserPrefers = shallowRef(
-    matchBrowserPrefers('dark')?.matches ? 'dark' : 'light'
+    matchBrowserPrefers('dark')?.matches ? 'dark' : 'light',
   )
   const setBrowserPrefers = (v: BrowserPrefers) => {
     browserPrefers.value = v
@@ -115,12 +114,12 @@ const ThemeSwitcher = defineComponent((props: ThemeSwitcherProps, ctx) => {
   const [themeMode, setThemeMode] = useMergeValue<ThemeMode>('light', {
     value: computed(() => props.themeMode!),
     defaultValue: props?.defaultThemeMode ?? unref(theme.value.themeMode),
-    onChange: (v) => props?.onThemeModeChange?.(v)
+    onChange: v => props?.onThemeModeChange?.(v),
   })
   const [appearance, setAppearance] = useMergeValue<ThemeAppearance>('light', {
     value: computed(() => props.appearance!),
     defaultValue: props.defaultAppearance ?? unref(theme.value.appearance),
-    onChange: (v) => props.onAppearanceChange?.(v)
+    onChange: v => props.onAppearanceChange?.(v),
   })
   useThemeModeProvide({
     appearance,
@@ -128,7 +127,7 @@ const ThemeSwitcher = defineComponent((props: ThemeSwitcherProps, ctx) => {
     themeMode,
     setThemeMode,
     isDarkMode: computed(() => appearance.value === 'dark'),
-    browserPrefers
+    browserPrefers,
   } as any)
   return () => {
     const children = ctx?.slots?.default?.()

@@ -4,7 +4,7 @@ import {
   Modal,
   message,
   notification,
-  theme
+  theme,
 } from 'ant-design-vue'
 
 import { defineComponent } from 'vue'
@@ -18,15 +18,15 @@ type AntdProviderProps = Pick<
 
 const AntdProvider = defineComponent((props: AntdProviderProps, { slots }) => {
   const [messageInstance, messageContextHolder] = message.useMessage(
-    props?.staticInstanceConfig?.message
+    props?.staticInstanceConfig?.message,
   )
-  const [notificationInstance, notificationContextHolder] =
-    notification.useNotification(props?.staticInstanceConfig?.notification)
+  const [notificationInstance, notificationContextHolder]
+    = notification.useNotification(props?.staticInstanceConfig?.notification)
   const [modalInstance, modalContextHolder] = Modal.useModal()
   props?.getStaticInstance?.({
     message: messageInstance,
     modal: modalInstance as any,
-    notification: notificationInstance
+    notification: notificationInstance,
   })
   return () => {
     const { theme: themeProp, prefixCls } = props
@@ -38,26 +38,24 @@ const AntdProvider = defineComponent((props: AntdProviderProps, { slots }) => {
 
       let antdTheme = themeProp as ThemeConfig | undefined
 
-      if (typeof themeProp === 'function') {
+      if (typeof themeProp === 'function')
         antdTheme = themeProp(appearance.value)
-      }
 
-      if (!antdTheme) {
+      if (!antdTheme)
         return { algorithm: baseAlgorithm }
-      }
 
       // 如果有 themeProp 说明是外部传入的 theme，需要对算法做一个合并处理，因此先把 themeProp 的算法规整为一个数组
       const algoProp = !antdTheme.algorithm
         ? []
         : Array.isArray(antdTheme.algorithm)
-        ? antdTheme.algorithm
-        : [antdTheme.algorithm]
+          ? antdTheme.algorithm
+          : [antdTheme.algorithm]
 
       return {
         ...antdTheme,
         algorithm: !antdTheme.algorithm
           ? baseAlgorithm
-          : [baseAlgorithm, ...algoProp]
+          : [baseAlgorithm, ...algoProp],
       }
     }
 
