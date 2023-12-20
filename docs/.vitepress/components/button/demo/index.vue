@@ -3,7 +3,7 @@ import AButton from '../index'
 </script>
 
 <template>
-  <AButton></AButton>
+  <AButton />
 </template>
 
 <style scoped></style>

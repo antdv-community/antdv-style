@@ -41,8 +41,8 @@ devDependencies:
     specifier: ^3.1.0
     version: 3.1.0(vite@5.0.5)(vue@3.3.9)
   ant-design-vue:
-    specifier: ^4.0.7
-    version: 4.0.7(vue@3.3.9)
+    specifier: ^4.0.8
+    version: 4.0.8(vue@3.3.9)
   eslint:
     specifier: ^8.55.0
     version: 8.55.0
@@ -56,8 +56,8 @@ devDependencies:
     specifier: ^3.6.4
     version: 3.6.4(@types/node@20.10.3)(typescript@5.3.2)(vite@5.0.5)
   vite-plugin-tsx-auto-props:
-    specifier: ^0.0.6
-    version: 0.0.6(typescript@5.3.2)(vite@5.0.5)
+    specifier: ^0.0.7
+    version: 0.0.7(typescript@5.3.2)(vite@5.0.5)
   vite-plugin-vitepress-demo:
     specifier: ^2.2.1
     version: 2.2.1(typescript@5.3.2)(vitepress@1.0.0-rc.30)
@@ -1828,8 +1828,8 @@ packages:
       color-convert: 2.0.1
     dev: true
 
-  /ant-design-vue@4.0.7(vue@3.3.9):
-    resolution: {integrity: sha512-oHTtc1GZkfENZTkt2aDvjaD4yoRsowYvCOmxA6+5AGqm5uz/datdJOXsq9nokIhC+vrAMhk6JQVFZ2hh7eU6Pw==}
+  /ant-design-vue@4.0.8(vue@3.3.9):
+    resolution: {integrity: sha512-SyPgbiPqxgXWHywxcstJN+j9N6PoZf6y5Gvvdbb+9od+uizmh2A+TnXmIHVJ44D1V1+YjXPz1EpLfIpxqDqu9A==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
       vue: '>=3.2.0'
@@ -4479,8 +4479,8 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-tsx-auto-props@0.0.6(typescript@5.3.2)(vite@5.0.5):
-    resolution: {integrity: sha512-pkIk2Srdoh5uOROHuZLmZ7Yjhb3daDIZn0QgyfNbVE8jlUKnRq7NHFzIznz2ht6bNIpy901Mz6fwJi1kKuxykQ==}
+  /vite-plugin-tsx-auto-props@0.0.7(typescript@5.3.2)(vite@5.0.5):
+    resolution: {integrity: sha512-qxML5HjjEnE237WcmlRbQ26Jp2JVkE5hl15ERLkLnb84lQxSgfex6CuUVxeHSzZFRw/6vxc8uKLkeI8KzcrR4A==}
     peerDependencies:
       typescript: '>=5'
       vite: '>=4'
